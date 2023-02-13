@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Witz-o-mat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="control container">
+        <button onclick="toggleControls()">&#9776;</button><br>
+        <div id="control">
+            <button onclick="getJoke()">Ein Witz</button><br>
+            <input type="number" id="amount">
+            <button onclick="moreJokes()">Mehr Witze</button><br>
+            <button onclick="clearJokes()">&#128465;</button>
+        </div>
+    </div>
+    <div id="jokecontainer" class="container">
+        <h1>Hier deine Zufallswitze!</h1>
+        <ul id="jokelist">
+        </ul>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>

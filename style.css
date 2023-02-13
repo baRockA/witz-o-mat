@@ -1,0 +1,30 @@
+* {
+    font-family: monospace;
+}
+
+.container {
+    border-radius: 25px;
+    padding: 2px 10px;
+    background-color: hsl(0, 0%, 80%);
+}
+
+.control {
+    display: inline-block;
+    box-shadow: 2px 2px 15px black;
+    position: fixed;
+    top: 5px;
+}
+
+button {
+    margin: 10px 0;
+    font-size: large;
+    font-weight: bold;
+}
+
+#amount {
+    width: 50px;
+}
+
+#jokecontainer {
+    margin-top: 40px;
+}
