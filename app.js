@@ -1,3 +1,4 @@
+const apilist = document.getElementById("apilist");
 const jokes = document.getElementById("jokelist");
 const controls = document.getElementById("control");
 
@@ -12,6 +13,7 @@ function toggleControls() {
 
 function showJoke(witztxt) {
     jokes.innerHTML += '<li>' + witztxt + '</li>';
+    controls.style.display = "none";
 }
 
 function clearJokes() {
@@ -37,12 +39,24 @@ function moreJokes() {
 }
 
 function getJoke() {
-    //Fetch-API zum Abruf eines neuen Chuck Norris Witzes aus dem Internet.
-    //Möglichst kurz geschrieben --> Müsst ihr nicht verstehen ;-)
-    fetch('https://api.chucknorris.io/jokes/random').then(response => {
-        return response.json();
-    }).then(data => {
-        //Funktion showJoke wird aufgerufen
-        showJoke(data.value);
-    });
+    let url = apilist.value;
+    if (url) {
+        apilist.style.border = "none";
+        //Fetch-API zum Abruf eines neuen Chuck Norris Witzes aus dem Internet.
+        //Möglichst kurz geschrieben --> Müsst ihr nicht verstehen ;-)
+        fetch(url).then(response => {
+            return response.json();
+        }).then(data => {
+            //Funktion showJoke wird aufgerufen
+            if (data.value){
+                showJoke(data.value);
+            } else if (data.text) {
+                showJoke(data.text);
+            } else if(data.setup && data.punchline){
+                showJoke(data.setup+"...<em>"+data.punchline+"</em>")
+            }
+        });
+    } else {
+        apilist.style.border = "3px solid red";
+    }
 }

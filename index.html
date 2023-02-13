@@ -12,6 +12,11 @@
     <div class="control container">
         <button onclick="toggleControls()">&#9776;</button><br>
         <div id="control">
+            <select id="apilist">
+                <option value="https://api.chucknorris.io/jokes/random">Chuck Norris Jokes</option>
+                <option value="https://official-joke-api.appspot.com/jokes/random">Random Joke</option>
+                <option value="https://uselessfacts.jsph.pl//random.json?language=de">Useless Facts (Deutsch)</option>
+            </select>
             <button onclick="getJoke()">Ein Witz</button><br>
             <input type="number" id="amount">
             <button onclick="moreJokes()">Mehr Witze</button><br>
@@ -25,5 +30,4 @@
     </div>
     <script src="app.js"></script>
 </body>
-
 </html>
